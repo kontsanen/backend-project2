@@ -1,0 +1,57 @@
+const express = require('express');
+
+const app = express();
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose');
+const cors = require('cors');
+const exphbs = require('express-handlebars');
+const posts = require('./Posts');
+
+require('dotenv/config');
+
+
+//middleware
+app.use(bodyParser.json());
+app.use(cors());
+
+//handlebars middleware
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+//import routes
+const postsRoute = require('./routes/posts');
+
+app.use('/posts', postsRoute);
+
+
+//homepage route
+app.get('/', (req, res) => res.render('index', {
+    title: 'Registered students',
+    posts
+ }));
+
+
+
+
+
+//routes
+app.get('/', (req, res) => {
+    res.send('We are on home');
+});
+
+app.get('/posts', (req, res) => {
+    res.send('We are on posts');
+});
+
+
+//connect to db
+
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () => 
+console.log('connected to db!')
+);
+
+
+
+// how to we start listening to the server
+
+app.listen(3000);
