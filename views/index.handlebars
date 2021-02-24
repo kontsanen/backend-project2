@@ -1,7 +1,7 @@
-<h1 class="text-center mb-3">Register as a student</h1>
+<h1 class="text-center mb-3">{{title}}</h1>
 
 
-<form action="/posts" method="POST" class="mb-4">
+<form action="/api/members" method="POST" class="mb-4">
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" name="name" class="form-control">
@@ -13,35 +13,18 @@
         <input type="text" name="email" class="form-control">
 
     </div>
-
-    <div class="form-group">
-        <label for="name">University</label>
-        <input type="text" name="university" class="form-control">
-
-    </div>
-
-    <div class="form-group">
-        <label for="name">Start year</label>
-        <input type="number" name="startYear" class="form-control">
-
-    </div>
-
-    <div class="form-group">
-        <label for="name">Expected year of graduation</label>
-        <input type="number" name="expectedGraduation" class="form-control">
-
-    </div>
-
-    <input type="submit" value="Add Member" class="btn btn-primary btn-block mt-2">
+    <input type="submit" value="Add Member" class="btn btn-primary btn-block">
 
 </form>
 
-</br>
-</br>
+<h4>Members</h4>
 
-<h5>Student data available here</h5>
+<ul class="list-group">
+    {{#each members}}
+        <li class="list-group-item">{{this.name}}: {{this.email}} </li>
+    {{/each}}
+
+</ul>
 
 
-
-
-<a href="/posts" class="btn btn-light mt-1">Visit API</a>
+<a href="/api/members" class="btn btn-light mt-4">Visit API</a>

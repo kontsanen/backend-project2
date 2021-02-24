@@ -46,7 +46,7 @@ app.get('/posts', (req, res) => {
 
 //connect to db
 
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () => 
+mongoose.connect('mongodb+srv://user_2:pass123@testcluster.kxweh.mongodb.net/restapiproject?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }, () => 
 console.log('connected to db!')
 );
 
