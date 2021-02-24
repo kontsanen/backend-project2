@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const cors = require('cors');
 const exphbs = require('express-handlebars');
-const posts = require('./Posts');
+
 
 require('dotenv/config');
 
