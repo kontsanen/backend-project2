@@ -14,9 +14,7 @@ require('dotenv/config');
 app.use(bodyParser.json());
 app.use(cors());
 
-//handlebars middleware
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+
 
 //import routes
 const postsRoute = require('./routes/posts');
@@ -24,11 +22,7 @@ const postsRoute = require('./routes/posts');
 app.use('/posts', postsRoute);
 
 
-//homepage route
-app.get('/', (req, res) => res.render('index', {
-    title: 'Registered students',
-    posts
- }));
+
 
 
 
