@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const exphbs = require('express-handlebars');
 
-
 require('dotenv/config');
 
 
@@ -27,7 +26,6 @@ app.use('/posts', postsRoute);
 
 
 
-
 //routes
 app.get('/', (req, res) => {
     res.send('We are on home');
@@ -40,7 +38,7 @@ app.get('/posts', (req, res) => {
 
 //connect to db
 
-mongoose.connect('mongodb+srv://user_2:pass123@testcluster.kxweh.mongodb.net/restapiproject?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }, () => 
+mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, () => 
 console.log('connected to db!')
 );
 
