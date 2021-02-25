@@ -1,0 +1,10 @@
+GET http://localhost:3000/subscribers
+
+###
+
+PATCH http://localhost:3000/subscribers/5ffcb5538012c2443000937e
+Content-Type: application/json
+
+{
+    "name": "New Name"
+}
